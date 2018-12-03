@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //set initial varialbles for wins and losses
-    var wins = 0
-    var losses = 0
+    var win = 0
+    var loss = 0
     //randomize target and gems
     var targetNumber = Math.floor(Math.random() * 101 + 19);
     var greenGem = Math.floor(Math.random() * 11 + 1);
@@ -26,17 +26,27 @@ $(document).ready(function () {
         $(".target-score").text("Target Score: " + targetNumber);
         //print current user score
         $(".tally-score").text(currentNumber);
+
+        
     }
     var wins = function() {
-        wins++;
+        //add 1 to wins
+        win++;
+        // alert winning message
         alert("Congratulations! You Win!");
-        $(".wins").text("Wins: " + wins);
+        //print wins text
+        $(".wins-and-losses").html("<p>Wins: " + win + "</p>" + "<br>" + "<p>Losses: " + loss + "</p>");
+        //run reset function
         reset();
     }
     var losses = function () {
-        losses++;
+        // add 1 to lossses value
+        loss++;
+        // loss alert
         alert("I'm sorry you lose! Please try again");
-        $(".losses").text("Losses: " + losses);
+        //print loss text
+        $(".wins-and-losses").html("<p>Wins: " + win + "</p>" + "<br>" + "<p>Losses: " + loss + "</p>");
+        //run reset function
         reset();
     }
     //print target score
